@@ -157,4 +157,4 @@ def section5():
     return render_template('section5.html', first_set_images=first_set_images, second_set_images=second_set_images)
 
 if __name__ == '__main__':
-    app.run(debug=False,host='0.0.0.0')
+    app.run(debug=False)
