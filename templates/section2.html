@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Assignments:</h1>
+    <ul>
+        {% for word, numbers in assignments.items() %}
+            <li>{{ word }}: {{ numbers }}</li>
+        {% endfor %}
+    </ul>
+    <h1>Task Write the Numbers or Words:</h1>
+    <form action="/result" method="post">
+        {% for word, number in assignments.items() %}
+            <p> 
+                {% if display_choices[loop.index0] == "word" %}
+                    {{ word }}: ___________________
+                {% else %}
+                    {{ number }}: ___________________
+                {% endif %}
+            </p>
+        {% endfor %}
+    </form>
+    <button id="printButton">Print task</button>
+    <script>
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+{% endblock %}

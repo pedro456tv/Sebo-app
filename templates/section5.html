@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1 class="text-center my-4">Section 5</h1>
+
+    <div class="container-fluid">
+        <!-- Table for the first set of images -->
+        <div class="row">
+            {% for image in first_set_images %}
+                <div class="col-6 col-md-4 col-lg-2 mb-2">
+                    <img src="{{ url_for('static', filename='images/' + image) }}" alt="{{ image }}" class="img-fluid first-set-image">
+                </div>
+            {% endfor %}
+        </div>
+
+        <hr class="my-4" style="border-width: 50px;">
+        <!-- Table for the second set of images -->
+        <div class="row">
+            {% for image in second_set_images %}
+                <div class="col-6 col-md-4 col-lg-3 mb-3">
+                    <img src="{{ url_for('static', filename='images/' + image) }}" alt="{{ image }}" class="img-fluid second-set-image">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script>
+            $(document).ready(function() {
+        // Click event handler for images in the second set
+        $('.second-set-image').click(function() {
+            // Get the source of the clicked image
+            var clickedImageSrc = $(this).attr('src');
+
+
+            // Check if the image was in the first set
+            if ($('.first-set-image').is('[src="' + clickedImageSrc + '"]')) {
+                // Toggle the green color
+                $(this).toggleClass('green-border');
+            }
+        });
+    });
+    </script>
+{% endblock %}

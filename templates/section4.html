@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Section 4</h1>
+
+    <table>
+        {% for row in rows %}
+            <tr>
+                {% for array in row %}
+                    <td>{{ array }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <button id="printButton">Print task</button>
+    <script>
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+{% endblock %}

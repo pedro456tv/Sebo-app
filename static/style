@@ -1,0 +1,11 @@
+/* Add this CSS to your stylesheet */
+.grid-container {
+    text-align: center;
+}
+
+.grid {
+    display: inline-block;
+    width: 200px; /* Set your desired width */
+    margin: 10px; /* Adjust the margin as needed */
+    vertical-align: top;
+}

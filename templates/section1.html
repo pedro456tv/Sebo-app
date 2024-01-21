@@ -1,0 +1,21 @@
+<!-- section1.html -->
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Section 1</h1>
+    <h2>3x3 Grids</h2>
+    <div class="grid-container">
+        {% for _ in range(40) %}
+            <div class="grid">
+                <pre>{{ grids[_] }}</pre>
+            </div>
+        {% endfor %}
+    </div>
+    <button id="printButton">Print All Grids</button>
+
+    <script>
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+{% endblock %}
