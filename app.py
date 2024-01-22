@@ -118,7 +118,7 @@ def section3():
     if request.method == 'POST':
         # Get the user input from the form
         original_text = request.form.get('user_input')
-
+      
         # Split the text into sentences
         sentences = original_text.split('.')
 
@@ -155,6 +155,19 @@ def section5():
     second_set_images = get_random_images(remaining_images, NUM_IMAGES_IN_SECOND_SET//2) + get_random_images(first_set_images, NUM_IMAGES_IN_SECOND_SET//2)
     random.shuffle(second_set_images)
     return render_template('section5.html', first_set_images=first_set_images, second_set_images=second_set_images)
+
+@app.route('/section6', methods = ['GET', 'POST'])
+def section6():
+    if request.method == 'POST':
+    
+        original_text = request.form.get('user_input')
+       
+        words = original_text.split(',')
+
+        random_word = random.choice(words)
+        return render_template('section6.html', original_text=original_text, rd_word=random_word)
+
+    return render_template('section6.html')
 
 if __name__ == '__main__':
     app.run(debug=False)

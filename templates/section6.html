@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Section 6</h1>
+
+    <form method="post" action="/section6">
+        <label for="user_input">Enter text:</label>
+        <textarea name="user_input" rows="5" cols="50" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if original_text %}
+        <h2>Original Text:</h2>
+        <p>{{ original_text }}</p>
+
+        <h3>Generated word:</h3> 
+        <div class="center-screen"><h2>{{ rd_word }}</h2></div>
+    {% endif %}
+    <button id="printButton">Print task</button>
+    <script>
+        document.getElementById('printButton').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+{% endblock %}
